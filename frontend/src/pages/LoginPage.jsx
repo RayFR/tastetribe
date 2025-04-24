@@ -1,7 +1,7 @@
 import styles from "../styles/LoginPage.module.css";
 import logo from "../assets/TasteTribeLogo.png";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "../utils/constants";
 
 function LoginPage() {
@@ -37,23 +37,27 @@ function LoginPage() {
 
     return(
         <>
-            <section className={styles.main}>
-                <div className={styles.logoname}>
-                    <img src={logo} alt="LOGO" className={styles.logo} />
-                    <p className={styles.name}>TasteTribe</p>
-                </div>
+            <main className={styles.main}>
+                <section className={styles.content}>
 
-                <div className={styles.formsection}>
-                    <form onSubmit={handleSubmit} className={styles.form}>
-                        <h1 className={styles.title}>Log In</h1>
-                        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <button type="submit">Log In</button>
-                    </form>
-                </div>
-            </section>
+                    <div className={styles.formsection}>
+                        <form onSubmit={handleSubmit} className={styles.form}>
+                            <h1 className={styles.title}>Log In</h1>
+                            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <button type="submit">Log In</button>
+                        </form>
+                    </div>
 
-            <section className={styles.side}></section>
+                </section>
+
+                <section className={styles.side}>
+                    <strong>New Here?</strong>
+                    <p>Sign Up and discover all new user curated recipes!</p>
+                    <button onClick={() => navigate("/signup")}>Sign Up</button>
+                </section>
+            </main>
+
         </>
     );
 }

@@ -1,1 +1,1 @@
-export const API_URL = "https://tastetribe-nodeapi.onrender.com/api"
+export const API_URL = "https://localhost:3000/api"

@@ -1,10 +1,10 @@
-.main {
+.content {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     gap: 30vh;
-    width: 100vw;
+    width: 75vw;
     height: 100vh;
 }
 
@@ -75,4 +75,49 @@ button {
     color: red;
 }
 
+
+.form button {
+    margin-top: 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    background-color: var(--secondary);
+    color: var(--primary);
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: none;
+    font-size: 1rem;
+}
+
+.side {
+    background-color: var(--secondary);
+    width: 25vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.side button {
+    background-color: var(--primary);
+    color: var(--text);
+    padding-left: 25%;
+    padding-right: 25%;
+    border-radius: 20px;
+} 
+
+.side button:hover {
+    background-color: var(--primary);
+    opacity: 80%;
+}
+
+.side p,
+.side strong {
+    color: var(--primary);
+    width: 60%;
+    text-align: center;
+}
 

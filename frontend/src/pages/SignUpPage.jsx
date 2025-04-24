@@ -47,25 +47,28 @@ function SignUpPage() {
 
     return(
         <>
-            <section className={styles.main}>
-                <div className={styles.logoname}>
-                    <img src="../assets/TasteTribeLogo.png" alt="LOGO" className={styles.logo} />
-                    <p className={styles.name}>TasteTribe</p>
-                </div>
+            <main className={styles.main}>
+                <section className={styles.content}>
 
-                <div className={styles.formsection}>
-                    <form onSubmit={handleSubmit} className={styles.form}>
-                        <h1 className={styles.title}>Sign Up</h1>
-                        <p className={styles.error}>{error}</p>
-                        <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <button type="submit">Sign Up</button>
-                    </form>
-                </div>
-            </section>
+                    <div className={styles.formsection}>
+                        <form onSubmit={handleSubmit} className={styles.form}>
+                            <h1 className={styles.title}>Sign Up</h1>
+                            <p className={styles.error}>{error}</p>
+                            <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <button type="submit">Sign Up</button>
+                        </form>
+                    </div>
+                </section>
 
-            <section className={styles.side}></section>
+                <section className={styles.side}>
+                    <strong>Already Have An Account?</strong>
+                    <p>Log In to your account and access recipes!</p>
+                    <button onClick={() => navigate("/login")}>Log In</button>
+                </section>
+            </main>
+
         </>
     );
 }

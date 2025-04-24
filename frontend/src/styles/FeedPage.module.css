@@ -95,3 +95,15 @@ main {
 .searchBar:focus {
   border-color: white;
 }
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.search img {
+  width: 35px;
+  height: 35px;
+}

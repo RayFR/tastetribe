@@ -3,6 +3,7 @@ import Shell from "../components/Shell.jsx";
 import Recipe from "../components/Recipe.jsx";
 import { useEffect, useState } from "react";
 import { API_URL } from "../utils/constants.js";
+import magnifier from "../assets/magnifier.png";
 
 function FeedPage() {
     const [recipes, setRecipes] = useState([]);
@@ -33,13 +34,17 @@ function FeedPage() {
                 <section className={styles.feed}>
                     <div className={styles.top}>
                         <h1 className={styles.title}>Feed</h1>
-                        <input
-                            type="text"
-                            placeholder="Search recipes..."
-                            className={styles.searchBar}
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
+                        <div className={styles.search}>
+                            <img src={magnifier} alt="MAGNIFIER" />
+                            <input
+                                type="text"
+                                placeholder="Search recipes..."
+                                className={styles.searchBar}
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                        </div>
+
                     </div>
                     <div className={styles.recipes}>
                         {filteredRecipes.length > 0 ? (
