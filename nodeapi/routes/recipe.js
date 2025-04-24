@@ -2,25 +2,24 @@ const express = require("express");
 const router = express.Router();
 const Recipe = require("../models/Recipe");
 const User = require("../models/User");
-const multer = require("multer");
-const path = require("path");
-const {authenticateJWT} = require("../middleware/authenticateJWT");
+const { authenticateJWT } = require("../middleware/authenticateJWT");
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
+const multer = require("multer");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("../utils/cloudinary");
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "tastetribe_uploads",
+    allowed_formats: ["jpg", "jpeg", "png"],
   },
 });
 
-const upload = multer({ storage: storage }); 
+const upload = multer({ storage });
 
 router.post("/create", authenticateJWT, upload.single("image"), async (req, res) => {
-  console.log("req.user: ", req.user);
-
-  const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+  const imageUrl = req.file ? req.file.path : null;
   const { name, description, type, cookingtime, ingredients, instructions } = req.body;
 
   try {
@@ -31,8 +30,8 @@ router.post("/create", authenticateJWT, upload.single("image"), async (req, res)
       cookingtime,
       ingredients,
       instructions,
-      image: imagePath,
-      uid: req.user.uid, 
+      image: imageUrl,
+      uid: req.user.uid,
     });
 
     res.status(201).json(recipe);
@@ -44,7 +43,7 @@ router.post("/create", authenticateJWT, upload.single("image"), async (req, res)
 
 router.get("/myrecipes", authenticateJWT, async (req, res) => {
   try {
-    const recipes = await Recipe.findAll({ where: { uid: req.user.uid }, include: [{model: User}] });
+    const recipes = await Recipe.findAll({ where: { uid: req.user.uid }, include: [User] });
     res.json(recipes);
   } catch (err) {
     console.error(err);
@@ -54,15 +53,11 @@ router.get("/myrecipes", authenticateJWT, async (req, res) => {
 
 router.get("/allrecipes", async (req, res) => {
   try {
-    const recipes = await Recipe.findAll({ include: [{ model: User }] });
-
-    recipes.forEach(recipe => console.log(recipe));
-
-    console.log(recipes.name);
+    const recipes = await Recipe.findAll({ include: [User] });
     res.json(recipes);
   } catch (err) {
     console.error(err);
-    res.status(400).json({error: "failed to get"});
+    res.status(400).json({ error: "failed to get" });
   }
 });
 
