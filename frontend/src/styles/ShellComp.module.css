@@ -109,6 +109,10 @@
     border: 1px solid var(--secondary);
 }
 
+.logout:hover {
+    background-color: var(--primary);
+}
+
 .logout img {
     width: 100%;
     height: 100%;
