@@ -3,6 +3,7 @@ import Shell from "../components/Shell.jsx";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import Recipe from "../components/Recipe.jsx";
+import { API_URL } from "../utils/constants.js";
 
 function MyRecipesPage() {
   const [user, setUser] = useState(null);
@@ -16,7 +17,7 @@ function MyRecipesPage() {
         const decoded = jwtDecode(token);
         setUser(decoded);
 
-        fetch("http://localhost:3000/api/recipes/myrecipes", {
+        fetch(`${API_URL}/recipes/myrecipes`, {
           headers: {
             Authorization: `Bearer ${token}`, 
           },

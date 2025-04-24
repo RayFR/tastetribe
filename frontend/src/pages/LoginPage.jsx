@@ -2,6 +2,7 @@ import styles from "../styles/LoginPage.module.css";
 import logo from "../assets/TasteTribeLogo.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../utils/constants";
 
 function LoginPage() {
     const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ function LoginPage() {
         e.preventDefault();
     
         try {
-            const res = await fetch("http://localhost:3000/api/users/login", {
+            const res = await fetch(`${API_URL}/users/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

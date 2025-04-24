@@ -4,6 +4,7 @@ import food from "../assets/food.png";
 import likeblack from "../assets/likeblack.png";
 import saveblack from "../assets/saveblack.png";
 import { useState, useEffect } from "react";
+import { API_URL } from "../utils/constants";
 
 function Recipe({recipe, isMyRecipe=false}) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,7 +22,7 @@ function Recipe({recipe, isMyRecipe=false}) {
 
     const handleUpdate = async () => {
         const token = localStorage.getItem("token");
-        const res = await fetch(`http://localhost:3000/api/recipes/update/${recipe.rid}`, {
+        const res = await fetch(`${API_URL}/recipes/update/${recipe.rid}`, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",
