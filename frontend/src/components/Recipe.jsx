@@ -69,7 +69,7 @@ function Recipe({recipe, isMyRecipe=false}) {
                         {isModalOpen && recipe && (
                         <div className={styles.modalBackdrop}>
                             <div className={styles.modal}>
-                            <img src={`http://localhost:3000${recipe.image}`} alt="FOODIMAGE" className={styles.image} />
+                            <img src={`${recipe.image}`} alt="FOODIMAGE" className={styles.image} />
                             
                             {isMyRecipe ? (
                                 <>
