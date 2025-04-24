@@ -6,7 +6,7 @@ const recipeRoutes = require("./routes/recipe");
 const cors = require("cors");
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://tastetribe.vercel.app",
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
