@@ -1,0 +1,65 @@
+main {
+    display: flex;
+}
+
+.addrecipe {
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 200px;
+}
+
+.title {
+    font-size: var(--font-900);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 80%;
+    padding: 2rem;
+}
+
+input,
+textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.instructionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.instructionsContainer button {
+    margin-top: 5px;
+}

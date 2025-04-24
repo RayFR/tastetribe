@@ -1,0 +1,79 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 30vh;
+    width: 100vw;
+    height: 100vh;
+}
+
+.logoname {
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+    align-items: center;
+    justify-self: flex-start;
+    align-self: flex-start;
+    padding: 20px;
+}
+
+.name {
+    font-size: var(--font-700);
+    text-align: center;
+}
+
+.formsection {
+    max-width: 1000px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+.title {
+    margin-bottom: 50px;
+}
+
+.form input {
+    padding: 20px;
+    width: 60%;
+    border-radius: 50px;
+    border: 1px solid var(--text);
+    background-color: var(--primary);
+    color: var(--text);
+}
+
+::placeholder {
+    opacity: 100%;
+    color: var(--text);
+    font-weight: bold;
+}
+
+button {
+    margin-top: 50px;
+    border-radius: 50px;
+    font-weight: bold;
+    background-color: var(--secondary);
+    color: var(--primary);
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border: none;
+    font-size: 1rem;
+}
+
+
