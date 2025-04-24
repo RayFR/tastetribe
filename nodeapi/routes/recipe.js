@@ -34,6 +34,8 @@ router.post("/create", authenticateJWT, upload.single("image"), async (req, res)
       uid: req.user.uid,
     });
 
+    console.log("Cloudinary image URL:", imageUrl);
+
     res.status(201).json(recipe);
   } catch (err) {
     console.error("Error creating recipe:", err);
