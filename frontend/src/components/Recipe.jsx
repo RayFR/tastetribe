@@ -49,7 +49,7 @@ function Recipe({recipe, isMyRecipe=false}) {
                                 <img src={profile} alt="pfp" className={styles.pfp} />
                                 <p className={styles.username}>{recipe.User ? recipe.User.username : "Unknown User"}</p>
                             </div>
-                            <img src={`http://localhost:3000${recipe.image}`} alt="FOODIMAGE" className={styles.image} />                            
+                            <img src={`${recipe.image}`} alt="FOODIMAGE" className={styles.image} />                            
                             <div className={styles.content}>
                                 <div className={styles.description}>
                                     <h1 className={styles.name}>{recipe.name}</h1>
